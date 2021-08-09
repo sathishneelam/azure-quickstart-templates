@@ -303,7 +303,7 @@
     {
       "name": "CreateADVM1",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2016-09-01",
       "dependsOn": [
         "[resourceId('Microsoft.Resources/deployments','CreateVNET')]",
         "[resourceId('Microsoft.Compute/availabilitySets', variables('adAvailabilitySetNameRoot'))]"
@@ -360,7 +360,7 @@
     {
       "name": "CreateForest",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2016-09-01",
       "dependsOn": [
         "Microsoft.Resources/deployments/CreateADVM1"
       ],
@@ -402,7 +402,7 @@
       "name": "CreateADVM3",
       "type": "Microsoft.Resources/deployments",
       "condition": "[parameters('createChildDomain')]",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2016-09-01",
       "dependsOn": [
         "[resourceId('Microsoft.Resources/deployments','CreateVNET')]",
         "[resourceId('Microsoft.Compute/availabilitySets', variables('adAvailabilitySetNameChild'))]"
@@ -459,7 +459,7 @@
     {
       "name": "CreateChildDomain",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2016-09-01",
       "condition": "[parameters('createChildDomain')]",
       "dependsOn": [
         "Microsoft.Resources/deployments/CreateADVM3",
@@ -505,7 +505,7 @@
     {
       "name": "CreateADVM2",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2016-09-01",
       "condition": "[parameters('createSecondDc')]",
       "dependsOn": [
         "[resourceId('Microsoft.Resources/deployments','CreateVNET')]",
@@ -563,7 +563,7 @@
     {
       "name": "ConfiguringRootDC2",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2016-09-01",
       "condition": "[parameters('createSecondDc')]",
       "dependsOn": [
         "Microsoft.Resources/deployments/CreateADVM2",
@@ -606,7 +606,7 @@
     {
       "name": "CreateADVM4",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2016-09-01",
       "condition": "[and(parameters('createSecondDc'), parameters('createChildDomain'))]",
       "dependsOn": [
         "[resourceId('Microsoft.Resources/deployments','CreateVNET')]",
@@ -707,7 +707,7 @@
     {
       "name": "UpdateVNet",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2016-09-01",
       "dependsOn": [
         "Microsoft.Resources/deployments/CreateChildDomain"
       ],
