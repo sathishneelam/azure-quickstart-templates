@@ -248,7 +248,7 @@
     {
       "name": "CreateVNET",
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2016-09-01",
       "properties": {
         "mode": "Incremental",
         "templateLink": {
@@ -665,7 +665,7 @@
       "name": "ConfiguringChildDC4",
       "type": "Microsoft.Resources/deployments",
       "condition": "[and(parameters('createSecondDc'), parameters('createChildDomain'))]",
-      "apiVersion": "2020-06-01",
+      "apiVersion": "2016-09-01",
       "dependsOn": [
         "Microsoft.Resources/deployments/CreateADVM4",
         "Microsoft.Resources/deployments/CreateChildDomain"
